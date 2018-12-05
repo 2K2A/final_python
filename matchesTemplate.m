@@ -49,5 +49,5 @@ totalDifference = sum(dif(:));
 totalPixels = BoundingBox(3)*BoundingBox(4);
 percentDifferent = totalDifference/totalPixels
 imshowpair(out,biggestBlob);
-
+matchest_template = percentDifferent <= 0.8;
 
