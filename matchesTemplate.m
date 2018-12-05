@@ -9,6 +9,10 @@ filtered_image = imgaussfilt(uint8(filtered_image));
 
 [labeledImage, numberOfBlobs] = bwlabel(filtered_image);
 blobMeasurements = regionprops(labeledImage, 'area');
+if numberOfBlobs == 0
+    matches_template = false;
+    return
+end
 % Get all the areas
 allAreas = [blobMeasurements.Area];
 [sortedAreas, sortIndexes] = sort(allAreas, 'descend');
@@ -49,5 +53,5 @@ totalDifference = sum(dif(:));
 totalPixels = BoundingBox(3)*BoundingBox(4);
 percentDifferent = totalDifference/totalPixels
 imshowpair(out,biggestBlob);
-matchest_template = percentDifferent <= 0.8;
+matches_template = percentDifferent <= 0.08;
 
