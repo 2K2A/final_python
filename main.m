@@ -31,7 +31,7 @@ for i=1:nNegativeImages
    has_stop_sign = confidence >= 50;
    if (has_stop_sign)
        % We say there is a stop sign but there isn't (fail)
-       currentImageName
+       % currentImageName
        results(3) = results(3) + 1;
    else
        % We say there is not a stop sign and there isn't (pass)
